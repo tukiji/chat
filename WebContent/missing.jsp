@@ -8,10 +8,11 @@
 </head>
 <body>
 <h1>ログイン失敗</h1>
-（ID or PASS）が違います！
+<h2>（ID or PASS）が違います！</h2>
 
-<a>ID or PASSを忘れた…？</a>
+<a>ID or PASSを忘れた…？</a><br>
+<form action = "">
 <input type = "submit" name = "ACTION" value = "ログイン画面">
 <input type = "submit" name = "ACTION" value = "新規登録">
-</body>
+</form></body>
 </html>
