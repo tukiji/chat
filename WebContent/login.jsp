@@ -8,7 +8,7 @@
 </head>
 <body><center>
 <h1>ログインフォーム</h1>
-	<form action = "LoginCheck" method = "POST">
+	<form action = "PageTransition" method = "POST">
 	IDを入力してね　　　　　　 <input type = "text" name = "ID"><br>
 	パスワードを入力してね　<input type = "password" name = "PASS"><br><br>
 	　　　　　　　　　　　　　　　　<input type = "submit" name = "ACTION" value = "ログイン">
