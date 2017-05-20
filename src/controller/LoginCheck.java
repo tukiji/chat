@@ -27,22 +27,25 @@ public class LoginCheck extends HttpServlet {
 		String pass = request.getParameter("PASS");
 		String url	= "login.jsp";
 		if( ( null == id ) || ( null == pass) ){					//idとpassが入力されていなかったら
-			url 	= "failure.jsp";
+			url 	= "mmissing.jsp";
 		}else{														//idとpassが入力されていたら
-			UserDao 	dao 		= new UserDao();
-			UserBean 	userBean	= dao.getUser(id, pass);
+			UserDao 	dao 				= new UserDao();
+			UserBean 	userBean			= dao.getUser(id, pass);
 
 			if(userBean == null){	//DB結果がNULLの場合の処理
-				url = "failure.jsp";
+				url 						= "missing.jsp";
 			}else{					//DB結果成功時
-				HttpSession session		= request.getSession();
-				session.setAttribute("bean", userBean);
-				url 					= "menu.jsp";				
+				if( userBean.getPass().equals(pass) ){
+					HttpSession session		= request.getSession();
+					session.setAttribute("bean", userBean);
+					url 					= "menu.jsp";
+				}else{
+					url 					= "missing.jsp";
+				}
 			}
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}
-
 }
